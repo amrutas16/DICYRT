@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Restaurants</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <!--script src = "{{ url_for('static', filename='main.js') }}"></script-->
+	<script>
+	
+function initMap() {
+    var bounds = new google.maps.LatLngBounds();          
+    map = new google.maps.Map(document.getElementById("map"));
+
+    //$.get('restaurantDetails.json', function(data) {
+
+
+    /*data = {"restaurants":[
+    {"restName":"London Eye, London", "lat": 51.503454, "lng": -0.119562, "address": "Address1", "rating" : 4},
+    {"restName":"Palace of Westminster, London", "lat": 51.499633, "lng": -0.124755, "address": "Address2", "rating" : 5}
+]}; */
+	
+	data = {{restaurant_data|safe}};
+    var infoWindowContent = [];
+	var markers = data.restaurants
+	for(i=0;i<markers.length;i++)
+	{
+		//var restName = data.restaurants[i].restName;
+		var restName = data.restaurants[i].name;
+		var address =  data.restaurants[i].full_address;
+		var rating =  data.restaurants[i].stars;
+		var info = ['<div class="info_content">' + '<h3>' + restName + '</h3>' + '<p>' + '<b>Address: </b>' + address + '</p>' + '<p>' + '<b>Rating: </b>' + rating + '</p>' +      '</div>'];
+		infoWindowContent.push(info);
+		
+	}
+var infoWindow = new google.maps.InfoWindow(), marker, i;	
+	  
+        for( i = 0; i < markers.length; i++ ) 
+        {
+            var marker = markers[i];
+            var position = new google.maps.LatLng(marker.latitude, marker.longitude);
+            bounds.extend(position);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+				label: (i + 1).toString(),   
+                title: marker.restName
+            });
+			
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        	})(marker, i));
+
+            map.fitBounds(bounds);
+        };
+
+}
+	</script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcNZUjvRUhXQR3VW3FJulKN2p587--bfc&callback=initMap" type="text/javascript">
+    </script>
+  </body>
+</html>

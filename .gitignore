@@ -1,0 +1,7 @@
+*.pyc
+*.log
+*.aux
+*.out
+*.synctex*
+data/
+node_modules/

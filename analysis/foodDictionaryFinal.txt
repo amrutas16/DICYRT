@@ -1,0 +1,90 @@
+Burger:American
+Cheeseburger:american
+Salad:American
+Soup:american
+Sandwich:american
+Hotdog:american
+Pancake:american
+Flatbread:american
+Mac and cheese:american
+Hashbrown:american
+Waffle:american
+Cheesecake:american
+Latte:american
+Cappuccino:american
+Mocha:american
+Frappuccino:american
+Espresso:american
+Coffee:american
+Bruschetta:italian
+Prosciutto:italian
+Salami:italian
+Pane:italian
+Bread:italian
+Pizza:italian
+Pasta:italian
+Riso:italian
+Pesce:italian
+Fish and chips:british
+Formaggio:italian
+Lasagna:italian
+Burrito:mexican
+Enchilada:mexican
+Nachos:mexican
+Quesadilla:mexican
+Picadillo:mexican
+Tacos:mexican
+Tortillas:mexican
+Tostadas:mexican
+Pico de gallo:mexican
+Churro:mexican
+Naan:indian
+Butter chicken:indian
+Chicken tikka masala:indian
+Biryani:indian
+chaat:indian
+Dal:indian
+Jalebi:indian
+Kheer:indian
+Khichdi:indian
+Roti:indian
+Paneer:indian
+Sabzi:indian
+Dosa:indian
+Idli:indian
+Sambar:indian
+Gulab jamun:indian
+Pav bhaji:indian
+Rice:indian
+Hummus:middle eastern
+Tahini:middle eastern
+Falafel:middle eastern
+Tabouleh:middle eastern
+Pita:middle eastern
+Baklawa:middle eastern
+Baba Ghannouj:middle eastern
+Roll:chinese
+Dumpling:chinese
+Fried rice:chinese
+Lo mein:chinese
+Chow mein:chinese
+Makizushi:japanese
+Miso soup:japanese
+Yakitori:japanese
+Tempura:japanese
+Edamame:japanese
+Ramen:japanese
+Mochi:japanese
+Okonomiyaki:japanese
+Sashimi:japanese
+Oden:japanese
+Soba:japanese
+Natto:japanese
+Onigiri:japanese
+Curry Rice:japanese
+Udon:japanese
+eggplant:middle eastern
+chicken:all
+Hamburger:american
+fries:american
+shakes:all

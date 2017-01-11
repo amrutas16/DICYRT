@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {        
+var data = google.visualization.arrayToDataTable([['Food', 'Count'],{% for item in labels %}
+                  {{item |safe }},
+              {% endfor %}
+        ]);
+    var options = {
+          pieHole: 0.5,
+          pieSliceTextStyle: {
+            color: 'black',
+          },
+          title:"{{title|safe}}",
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="donut_single" align="center" style="width: 800px; height: 800px;"></div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+CREATE KEYSPACE aniket WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 3};
+
+use aniket
+
+
+CREATE TABLE food_details(
+    source text,
+    business_id text,
+    food text,
+    count int,
+    PRIMARY KEY ((business_id),food,source)
+)
+WITH CLUSTERING ORDER BY (food ASC , source DESC);
+
+CREATE INDEX ON food_details( food );
+
+
+INSERT INTO food_details (source,business_id,food,count) VALUES ('Yelp','xyz','tomato',3);
+
+INSERT INTO food_details (source,business_id,food,count) VALUES ('Yelp','xyz','basil',2);
+INSERT INTO food_details (source,business_id,food,count) VALUES ('Yelp','mno','tomato',4);
+INSERT INTO food_details (source,business_id,food,count) VALUES ('Yelp','tmo','tomato',5);
+INSERT INTO food_details (source,business_id,food,count) VALUES ('Google','xyz','tomato',6);
+
+SELECT * FROM food_details;
+
+select business_id,food,count from food_details where business_id= 'xyz' ALLOW FILTERING;
+
+
+DROP TABLE food_details;
+
+
+
